@@ -1,0 +1,4 @@
+<h2>Deseja remover {{ object.nome }}?</h2>
+<form method="post">{% csrf_token %}
+  <button type="submit">Confirmar</button>
+</form>

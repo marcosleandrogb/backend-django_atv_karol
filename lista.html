@@ -1,0 +1,16 @@
+<h1>Vendas</h1>
+<form method="get">
+  Cliente: <input type="text" name="cliente" value="{{ request.GET.cliente }}">
+  De: <input type="date" name="data_inicio" value="{{ request.GET.data_inicio }}">
+  Até: <input type="date" name="data_fim" value="{{ request.GET.data_fim }}">
+  <button type="submit">Filtrar</button>
+</form>
+<a href="{% url 'venda-create' %}">Nova Venda</a>
+<ul>
+  {% for venda in vendas %}
+    <li>
+      {{ venda.cliente.nome }} comprou {{ venda.quantidade }}x {{ venda.produto.nome }}
+      em {{ venda.data_venda }} – Total: R$ {{ venda.valor_total }}
+    </li>
+  {% endfor %}
+</ul>
